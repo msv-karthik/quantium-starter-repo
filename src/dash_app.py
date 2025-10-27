@@ -14,21 +14,15 @@ df = df.sort_values('date')
 daily_sales = df.groupby('date')['sales'].sum().reset_index()
 
 # --- Create Line Chart ---
-# fig = px.line(
-#     daily_sales,
-#     x='date',
-#     y='sales',
-#     title='Pink Morsel Sales Over Time',
-#     labels={'date': 'Date', 'sales': 'Total Sales ($)'}
-# )
 
-fig = px.bar(
+fig = px.line(
     daily_sales,
     x='date',
     y='sales',
-    title='Pink Morsel Sales Over Time',
+    title='Daily Pink Morsel Sales',
     labels={'date': 'Date', 'sales': 'Total Sales ($)'}
 )
+
 
 
 # --- Build Dash App ---

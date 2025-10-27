@@ -33,6 +33,7 @@ for file in csv_files:
         print(f"⚠️  No Pink Morsel rows in {os.path.basename(file)} — skipping.")
         continue
 
+    df["price"] = df["price"].replace('[\$,]', '', regex=True).astype(float)
     # Compute sales
     df["sales"] = df["quantity"] * df["price"]
 
